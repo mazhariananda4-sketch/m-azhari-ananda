@@ -18,7 +18,6 @@
       --danger: #ff4d4d;
       --warning: #ffb833;
       --border: #1e3028;
-      --glow: rgba(0, 230, 138, 0.15);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,27 +32,18 @@
 
     .mono { font-family: 'JetBrains Mono', monospace; }
 
-    /* Background ambience */
     .bg-ambience {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
     }
     .bg-ambience::before {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px;
-      top: -200px; left: -100px;
+      content: ''; position: absolute;
+      width: 600px; height: 600px; top: -200px; left: -100px;
       background: radial-gradient(circle, rgba(0,230,138,0.06) 0%, transparent 70%);
       animation: floatBlob 12s ease-in-out infinite;
     }
     .bg-ambience::after {
-      content: '';
-      position: absolute;
-      width: 500px; height: 500px;
-      bottom: -150px; right: -100px;
+      content: ''; position: absolute;
+      width: 500px; height: 500px; bottom: -150px; right: -100px;
       background: radial-gradient(circle, rgba(0,179,107,0.05) 0%, transparent 70%);
       animation: floatBlob 15s ease-in-out infinite reverse;
     }
@@ -62,18 +52,12 @@
       50% { transform: translate(60px, 40px) scale(1.15); }
     }
 
-    /* Noise texture overlay */
     .noise-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0.03;
+      position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.03;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 128px 128px;
     }
 
-    /* Timer ring */
     .timer-ring-bg { stroke: var(--border); }
     .timer-ring-progress {
       stroke: var(--accent);
@@ -83,14 +67,12 @@
     .timer-ring-progress.warning { stroke: var(--warning); filter: drop-shadow(0 0 8px rgba(255,184,51,0.4)); }
     .timer-ring-progress.danger { stroke: var(--danger); filter: drop-shadow(0 0 12px rgba(255,77,77,0.5)); }
 
-    /* Pulse animation saat alarm */
     @keyframes alarmPulse {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.08); opacity: 0.85; }
     }
     .alarm-active { animation: alarmPulse 0.6s ease-in-out infinite; }
 
-    /* Glow ring saat alarm */
     @keyframes glowRing {
       0% { opacity: 0.3; transform: scale(0.95); }
       50% { opacity: 0.8; transform: scale(1.05); }
@@ -98,7 +80,6 @@
     }
     .glow-ring-anim { animation: glowRing 1s ease-in-out infinite; }
 
-    /* Card styling */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -111,52 +92,36 @@
       box-shadow: 0 0 30px rgba(0,230,138,0.04);
     }
 
-    /* Button styles */
     .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      font-weight: 600;
-      border: none;
-      border-radius: 12px;
-      padding: 12px 28px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px;
+      background: var(--accent); color: var(--bg); font-weight: 600;
+      border: none; border-radius: 12px; padding: 12px 28px; cursor: pointer;
+      transition: all 0.2s; font-family: 'Space Grotesk', sans-serif; font-size: 15px;
     }
     .btn-primary:hover { background: #00ff99; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,230,138,0.3); }
     .btn-primary:active { transform: translateY(0); }
     .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
 
     .btn-secondary {
-      background: transparent;
-      color: var(--muted);
-      font-weight: 500;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 28px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px;
+      background: transparent; color: var(--muted); font-weight: 500;
+      border: 1px solid var(--border); border-radius: 12px; padding: 12px 28px;
+      cursor: pointer; transition: all 0.2s; font-family: 'Space Grotesk', sans-serif; font-size: 15px;
     }
     .btn-secondary:hover { color: var(--fg); border-color: var(--muted); }
 
     .btn-danger {
-      background: transparent;
-      color: var(--danger);
-      font-weight: 500;
-      border: 1px solid rgba(255,77,77,0.3);
-      border-radius: 12px;
-      padding: 12px 28px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px;
+      background: transparent; color: var(--danger); font-weight: 500;
+      border: 1px solid rgba(255,77,77,0.3); border-radius: 12px; padding: 12px 28px;
+      cursor: pointer; transition: all 0.2s; font-family: 'Space Grotesk', sans-serif; font-size: 15px;
     }
     .btn-danger:hover { background: rgba(255,77,77,0.1); border-color: var(--danger); }
 
-    /* Log list */
+    .btn-warning {
+      background: rgba(255,184,51,0.1); color: var(--warning); font-weight: 500;
+      border: 1px solid rgba(255,184,51,0.3); border-radius: 10px; padding: 10px 16px;
+      cursor: pointer; transition: all 0.2s; font-family: 'Space Grotesk', sans-serif; font-size: 13px;
+    }
+    .btn-warning:hover { background: rgba(255,184,51,0.2); border-color: var(--warning); }
+
     .log-item {
       border-left: 3px solid var(--accent);
       padding: 12px 16px;
@@ -166,65 +131,84 @@
     }
     .log-item:hover { background: rgba(0,230,138,0.07); }
 
-    /* Toast */
     .toast {
-      position: fixed;
-      top: 24px;
-      right: 24px;
-      z-index: 1000;
-      padding: 16px 24px;
-      border-radius: 12px;
-      background: var(--bg-card);
-      border: 1px solid var(--danger);
-      color: var(--fg);
-      font-weight: 500;
+      position: fixed; top: 24px; right: 24px; z-index: 1000;
+      padding: 16px 24px; border-radius: 12px;
+      background: var(--bg-card); border: 1px solid var(--danger);
+      color: var(--fg); font-weight: 500;
       box-shadow: 0 8px 32px rgba(255,77,77,0.2);
       transform: translateX(120%);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .toast.show { transform: translateX(0); }
 
-    /* Scrollbar */
+    .toast-success {
+      position: fixed; top: 24px; right: 24px; z-index: 1000;
+      padding: 16px 24px; border-radius: 12px;
+      background: var(--bg-card); border: 1px solid var(--accent);
+      color: var(--fg); font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0,230,138,0.2);
+      transform: translateX(120%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast-success.show { transform: translateX(0); }
+
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
-    /* Stat card number animation */
     @keyframes countUp {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .stat-num { animation: countUp 0.4s ease-out; }
 
-    /* Ticker dots */
     .ticker-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--border);
-      transition: background 0.3s;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); transition: background 0.3s;
     }
     .ticker-dot.active { background: var(--accent); box-shadow: 0 0 8px rgba(0,230,138,0.5); }
     .ticker-dot.passed { background: var(--accent-dim); }
 
-    /* Dismiss button pada alarm overlay */
     .dismiss-btn {
-      background: var(--danger);
-      color: white;
-      font-weight: 700;
-      font-size: 18px;
-      border: none;
-      border-radius: 16px;
-      padding: 18px 48px;
-      cursor: pointer;
-      font-family: 'Space Grotesk', sans-serif;
-      transition: all 0.2s;
-      letter-spacing: 0.5px;
+      background: var(--danger); color: white; font-weight: 700; font-size: 18px;
+      border: none; border-radius: 16px; padding: 18px 48px; cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif; transition: all 0.2s; letter-spacing: 0.5px;
     }
     .dismiss-btn:hover { background: #ff6666; transform: scale(1.03); box-shadow: 0 0 30px rgba(255,77,77,0.4); }
 
-    /* Small screen adjustments */
-    @media (max-width: 768px) {
+    /* Notif permission banner */
+    .notif-banner {
+      background: rgba(255,184,51,0.08);
+      border: 1px solid rgba(255,184,51,0.25);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.4s;
+    }
+    .notif-banner.granted {
+      background: rgba(0,230,138,0.06);
+      border-color: rgba(0,230,138,0.2);
+    }
+    .notif-banner.denied {
+      background: rgba(255,77,77,0.06);
+      border-color: rgba(255,77,77,0.2);
+    }
+
+    @keyframes notifShake {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-8deg); }
+      40% { transform: rotate(8deg); }
+      60% { transform: rotate(-5deg); }
+      80% { transform: rotate(5deg); }
+    }
+    .bell-shake { animation: notifShake 0.6s ease-in-out; }
+
+    @media (max-width: 900px) {
+      main > div { grid-template-columns: 1fr !important; }
       .timer-container svg { width: 220px; height: 220px; }
     }
 
@@ -241,16 +225,22 @@
 <div class="bg-ambience"></div>
 <div class="noise-overlay"></div>
 
-<!-- Toast notifikasi -->
+<!-- Toast Alarm -->
 <div id="toast" class="toast" role="alert" aria-live="assertive">
   <i class="fa-solid fa-bell" style="color:var(--danger);margin-right:8px;"></i>
   <span id="toastMsg">Alarm berbunyi!</span>
 </div>
 
+<!-- Toast Sukses -->
+<div id="toastSuccess" class="toast-success" role="status">
+  <i class="fa-solid fa-circle-check" style="color:var(--accent);margin-right:8px;"></i>
+  <span id="toastSuccessMsg">Berhasil!</span>
+</div>
+
 <!-- Overlay Alarm -->
 <div id="alarmOverlay" style="display:none;position:fixed;inset:0;z-index:900;background:rgba(10,15,13,0.92);backdrop-filter:blur(20px);justify-content:center;align-items:center;flex-direction:column;gap:28px;">
   <div id="alarmGlow" style="width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,77,0.25),transparent 70%);position:absolute;"></div>
-  <i class="fa-solid fa-bell alarm-active" style="font-size:72px;color:var(--danger);position:relative;z-index:1;"></i>
+  <i id="alarmBellIcon" class="fa-solid fa-bell alarm-active" style="font-size:72px;color:var(--danger);position:relative;z-index:1;"></i>
   <h2 style="font-size:32px;font-weight:700;color:var(--danger);position:relative;z-index:1;">WAKTUNYA!</h2>
   <p style="color:var(--muted);font-size:16px;position:relative;z-index:1;">20 menit telah berlalu</p>
   <button class="dismiss-btn" onclick="dismissAlarm()" aria-label="Matikan alarm">MATIKAN ALARM</button>
@@ -259,7 +249,7 @@
 <div style="position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;">
 
   <!-- Header -->
-  <header style="padding:20px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);">
+  <header style="padding:20px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:12px;">
     <div style="display:flex;align-items:center;gap:12px;">
       <div style="width:36px;height:36px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;">
         <i class="fa-solid fa-clock" style="color:var(--bg);font-size:16px;"></i>
@@ -277,8 +267,20 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <main style="flex:1;padding:32px;max-width:1200px;margin:0 auto;width:100%;">
+
+    <!-- Banner Izin Notifikasi -->
+    <div id="notifBanner" class="notif-banner" style="margin-bottom:24px;">
+      <i id="notifBannerIcon" class="fa-solid fa-bell-slash" style="font-size:20px;color:var(--warning);flex-shrink:0;"></i>
+      <div style="flex:1;">
+        <p id="notifBannerTitle" style="font-size:14px;font-weight:600;">Notifikasi PC belum diaktifkan</p>
+        <p id="notifBannerDesc" style="font-size:12px;color:var(--muted);margin-top:2px;">Aktifkan agar alarm muncul sebagai notifikasi desktop saat browser tidak terlihat.</p>
+      </div>
+      <button id="notifBannerBtn" class="btn-warning" onclick="requestNotifPermission()" aria-label="Aktifkan notifikasi">
+        <i class="fa-solid fa-bell" style="margin-right:6px;"></i>Aktifkan
+      </button>
+    </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
 
@@ -301,8 +303,8 @@
             </div>
           </div>
 
-          <!-- Progress ticks (5 tick per menit = 100 total) -->
-          <div style="display:flex;gap:6px;align-items:center;">
+          <!-- Ticker dots -->
+          <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;">
             <div class="ticker-dot" data-tick="0"></div>
             <div class="ticker-dot" data-tick="1"></div>
             <div class="ticker-dot" data-tick="2"></div>
@@ -340,6 +342,13 @@
               <i class="fa-solid fa-stop" style="margin-right:8px;"></i>Hentikan
             </button>
           </div>
+
+          <!-- Keyboard hint -->
+          <p style="font-size:11px;color:var(--border);text-align:center;">
+            <kbd style="padding:2px 6px;border-radius:4px;border:1px solid var(--border);font-family:'JetBrains Mono';font-size:10px;">Space</kbd> Mulai/Jeda &nbsp;
+            <kbd style="padding:2px 6px;border-radius:4px;border:1px solid var(--border);font-family:'JetBrains Mono';font-size:10px;">Esc</kbd> Matikan &nbsp;
+            <kbd style="padding:2px 6px;border-radius:4px;border:1px solid var(--border);font-family:'JetBrains Mono';font-size:10px;">R</kbd> Reset
+          </p>
         </div>
 
         <!-- Statistik Cards -->
@@ -359,7 +368,7 @@
         </div>
       </div>
 
-      <!-- Kolom Kanan: Log & Info -->
+      <!-- Kolom Kanan -->
       <div style="display:flex;flex-direction:column;gap:28px;">
 
         <!-- Info Card -->
@@ -385,13 +394,20 @@
             </div>
             <div style="height:1px;background:var(--border);"></div>
             <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:var(--muted);font-size:14px;">Notifikasi PC</span>
+              <span id="notifStatus" style="font-size:14px;font-weight:600;color:var(--warning);">
+                <i class="fa-solid fa-bell-slash" style="margin-right:4px;font-size:12px;"></i>Nonaktif
+              </span>
+            </div>
+            <div style="height:1px;background:var(--border);"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
               <span style="color:var(--muted);font-size:14px;">Alarm Berikutnya</span>
               <span id="nextAlarm" class="mono" style="font-size:14px;font-weight:600;">--:--</span>
             </div>
           </div>
         </div>
 
-        <!-- Pengaturan Suara -->
+        <!-- Pengaturan -->
         <div class="card" style="padding:24px;">
           <h3 style="font-size:15px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
             <i class="fa-solid fa-sliders" style="color:var(--accent);font-size:14px;"></i>
@@ -426,9 +442,14 @@
                 </button>
               </div>
             </div>
-            <button id="btnTestSound" class="btn-secondary" onclick="testSound()" style="width:100%;padding:10px;">
-              <i class="fa-solid fa-music" style="margin-right:8px;"></i>Test Suara
-            </button>
+            <div style="display:flex;gap:8px;">
+              <button id="btnTestSound" class="btn-secondary" onclick="testSound()" style="flex:1;padding:10px;">
+                <i class="fa-solid fa-music" style="margin-right:8px;"></i>Test Suara
+              </button>
+              <button id="btnTestNotif" class="btn-secondary" onclick="testNotification()" style="flex:1;padding:10px;">
+                <i class="fa-solid fa-bell" style="margin-right:8px;"></i>Test Notif
+              </button>
+            </div>
           </div>
         </div>
 
@@ -455,20 +476,19 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer style="padding:16px 32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-    <span style="font-size:12px;color:var(--muted);">Alarm Dashboard v1.0</span>
-    <span style="font-size:12px;color:var(--muted);">Interval tetap 20 menit &middot; Otomatis berulang</span>
+  <footer style="padding:16px 32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+    <span style="font-size:12px;color:var(--muted);">Alarm Dashboard v1.1</span>
+    <span style="font-size:12px;color:var(--muted);">Interval 20 menit &middot; Notifikasi PC &middot; Otomatis berulang</span>
   </footer>
 </div>
 
 <script>
   // === KONFIGURASI ===
-  const INTERVAL_MS = 20 * 60 * 1000; // 20 menit dalam milidetik
-  const CIRCUMFERENCE = 2 * Math.PI * 124; // Keliling lingkaran SVG
+  const INTERVAL_MS = 20 * 60 * 1000;
+  const CIRCUMFERENCE = 2 * Math.PI * 124;
 
   // === STATE ===
-  let timerState = 'idle'; // idle | running | paused | alarmed
+  let timerState = 'idle';
   let remainingMs = INTERVAL_MS;
   let startTime = 0;
   let pausedRemaining = 0;
@@ -480,17 +500,13 @@
   let selectedTone = 'beep';
   let volume = 0.7;
 
-  // Audio context (dibuat saat interaksi pertama)
   let audioCtx = null;
-
   function getAudioCtx() {
-    if (!audioCtx) {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     return audioCtx;
   }
 
-  // === ELEMEN DOM ===
+  // === DOM ===
   const timerDisplay = document.getElementById('timerDisplay');
   const timerLabel = document.getElementById('timerLabel');
   const timerRing = document.getElementById('timerRing');
@@ -508,9 +524,17 @@
   const alarmOverlay = document.getElementById('alarmOverlay');
   const toast = document.getElementById('toast');
   const toastMsg = document.getElementById('toastMsg');
+  const toastSuccess = document.getElementById('toastSuccess');
+  const toastSuccessMsg = document.getElementById('toastSuccessMsg');
   const alarmGlow = document.getElementById('alarmGlow');
+  const alarmBellIcon = document.getElementById('alarmBellIcon');
+  const notifBanner = document.getElementById('notifBanner');
+  const notifBannerIcon = document.getElementById('notifBannerIcon');
+  const notifBannerTitle = document.getElementById('notifBannerTitle');
+  const notifBannerDesc = document.getElementById('notifBannerDesc');
+  const notifBannerBtn = document.getElementById('notifBannerBtn');
+  const notifStatus = document.getElementById('notifStatus');
 
-  // Inisialisasi ring
   timerRing.style.strokeDasharray = CIRCUMFERENCE;
   timerRing.style.strokeDashoffset = '0';
 
@@ -532,9 +556,120 @@
   setInterval(updateClock, 1000);
   updateClock();
 
+  // === NOTIFIKASI PC ===
+  function getNotifPermission() {
+    if (!('Notification' in window)) return 'unsupported';
+    return Notification.permission;
+  }
+
+  function updateNotifUI() {
+    const perm = getNotifPermission();
+    if (perm === 'granted') {
+      notifBanner.className = 'notif-banner granted';
+      notifBannerIcon.className = 'fa-solid fa-bell';
+      notifBannerIcon.style.color = 'var(--accent)';
+      notifBannerTitle.textContent = 'Notifikasi PC aktif';
+      notifBannerDesc.textContent = 'Alarm akan muncul sebagai notifikasi desktop saat waktunya.';
+      notifBannerBtn.style.display = 'none';
+      notifStatus.innerHTML = '<i class="fa-solid fa-bell" style="margin-right:4px;font-size:12px;"></i>Aktif';
+      notifStatus.style.color = 'var(--accent)';
+    } else if (perm === 'denied') {
+      notifBanner.className = 'notif-banner denied';
+      notifBannerIcon.className = 'fa-solid fa-bell-slash';
+      notifBannerIcon.style.color = 'var(--danger)';
+      notifBannerTitle.textContent = 'Notifikasi PC ditolak';
+      notifBannerDesc.textContent = 'Izinkan notifikasi dari browser Anda di pengaturan situs untuk mengaktifkan fitur ini.';
+      notifBannerBtn.style.display = 'none';
+      notifStatus.innerHTML = '<i class="fa-solid fa-ban" style="margin-right:4px;font-size:12px;"></i>Ditolak';
+      notifStatus.style.color = 'var(--danger)';
+    } else {
+      // default — belum diminta
+      notifBanner.className = 'notif-banner';
+      notifBannerIcon.className = 'fa-solid fa-bell-slash';
+      notifBannerIcon.style.color = 'var(--warning)';
+      notifBannerTitle.textContent = 'Notifikasi PC belum diaktifkan';
+      notifBannerDesc.textContent = 'Aktifkan agar alarm muncul sebagai notifikasi desktop saat browser tidak terlihat.';
+      notifBannerBtn.style.display = 'inline-flex';
+      notifStatus.innerHTML = '<i class="fa-solid fa-bell-slash" style="margin-right:4px;font-size:12px;"></i>Nonaktif';
+      notifStatus.style.color = 'var(--warning)';
+    }
+  }
+
+  async function requestNotifPermission() {
+    if (!('Notification' in window)) {
+      showSuccessToast('Browser Anda tidak mendukung notifikasi desktop.');
+      return;
+    }
+    const result = await Notification.requestPermission();
+    updateNotifUI();
+    if (result === 'granted') {
+      showSuccessToast('Notifikasi PC berhasil diaktifkan!');
+      // Kirim notifikasi test setelah izin diberikan
+      setTimeout(() => testNotification(), 600);
+    } else if (result === 'denied') {
+      showSuccessToast('Izin notifikasi ditolak oleh browser.');
+    }
+  }
+
+  function sendPCNotification(title, body) {
+    if (getNotifPermission() !== 'granted') return;
+
+    // Cek apakah Service Worker didukung untuk notifikasi yang lebih kuat
+    const notif = new Notification(title, {
+      body: body,
+      icon: 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🔔</text></svg>'),
+      badge: 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">⏰</text></svg>'),
+      tag: 'alarm-20min', // Hindari notifikasi duplikat bertumpuk
+      requireInteraction: true, // Tidak hilang otomatis, user harus klik
+      silent: false,
+    });
+
+    notif.onclick = function() {
+      window.focus();
+      // Jika alarm sedang berbunyi, fokuskan ke overlay
+      if (timerState === 'alarmed') {
+        dismissAlarm();
+      }
+      notif.close();
+    };
+
+    notif.onclose = function() {
+      // Jika user menutup notif dan alarm masih aktif
+      if (timerState === 'alarmed') {
+        // Biarkan overlay tetap tampil
+      }
+    };
+  }
+
+  function testNotification() {
+    if (getNotifPermission() !== 'granted') {
+      requestNotifPermission();
+      return;
+    }
+    sendPCNotification(
+      'Test Notifikasi Alarm',
+      'Ini adalah notifikasi test. Alarm 20 menit akan muncul seperti ini.'
+    );
+  }
+
+  // Cek status notifikasi saat halaman dimuat
+  updateNotifUI();
+  // Pantau perubahan permission (beberapa browser mendukung ini)
+  if ('Notification' in window && Notification.onpermissionchange) {
+    Notification.onpermissionchange = function() {
+      updateNotifUI();
+    };
+  }
+
   // === KONTROL TIMER ===
   function startTimer() {
     if (timerState === 'running') return;
+
+    // Otomatis minta izin notifikasi saat pertama kali mulai
+    if (getNotifPermission() === 'default') {
+      requestNotifPermission();
+    }
+
     timerState = 'running';
     currentCycle++;
     remainingMs = INTERVAL_MS;
@@ -586,12 +721,10 @@
   function updateTimerDisplay() {
     timerDisplay.textContent = formatTime(remainingMs);
 
-    // Progress ring
     const progress = 1 - (remainingMs / INTERVAL_MS);
     const offset = progress * CIRCUMFERENCE;
     timerRing.style.strokeDashoffset = -offset;
 
-    // Warna berdasarkan sisa waktu
     timerRing.classList.remove('warning', 'danger');
     if (remainingMs <= 60000) {
       timerRing.classList.add('danger');
@@ -599,23 +732,19 @@
       timerRing.classList.add('warning');
     }
 
-    // Label
     if (timerState === 'running') {
       if (remainingMs <= 60000) timerLabel.textContent = 'Hampir selesai';
       else if (remainingMs <= 180000) timerLabel.textContent = 'Segera berbunyi';
       else timerLabel.textContent = 'Berjalan';
     }
 
-    // Ticker dots
     updateTickerDots(progress);
 
-    // Perkiraan waktu alarm berikutnya
     if (timerState === 'running') {
       const nextTime = new Date(Date.now() + remainingMs);
       nextAlarmEl.textContent = nextTime.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
     }
 
-    // Waktu aktif
     if (activeStartTime) {
       const activeMin = Math.floor((Date.now() - activeStartTime) / 60000);
       statActive.textContent = activeMin < 60 ? `${activeMin}m` : `${Math.floor(activeMin / 60)}j ${activeMin % 60}m`;
@@ -645,15 +774,25 @@
     alarmOverlay.style.display = 'flex';
     alarmGlow.classList.add('glow-ring-anim');
 
+    // Animasi goyang lonceng
+    alarmBellIcon.classList.add('bell-shake');
+    setTimeout(() => alarmBellIcon.classList.remove('bell-shake'), 600);
+
     // Mainkan suara berulang
     playAlarmSound();
     alarmIntervalId = setInterval(playAlarmSound, 1200);
 
+    // === KIRIM NOTIFIKASI PC ===
+    sendPCNotification(
+      `Alarm Siklus #${currentCycle}`,
+      `20 menit telah berlalu. Waktu: ${formatClock(new Date())}`
+    );
+
     // Tambah ke log
-    addLogEntry();
+    addLogEntry(true);
 
     // Toast
-    showToast('Alarm berbunyi! 20 menit telah berlalu.');
+    showToast('Alarm berbunyi! Cek notifikasi PC Anda.');
 
     // Update statistik
     statTotal.textContent = totalAlarmCount;
@@ -673,17 +812,12 @@
     startTick();
   }
 
-  // === SUARA ALARM (Web Audio API) ===
+  // === SUARA ALARM ===
   function playAlarmSound() {
     const ctx = getAudioCtx();
     if (ctx.state === 'suspended') ctx.resume();
 
-    const gainNode = ctx.createGain();
-    gainNode.gain.value = volume * 0.4;
-    gainNode.connect(ctx.destination);
-
     if (selectedTone === 'beep') {
-      // Beep klasik: 3 nada pendek
       [0, 0.15, 0.3].forEach(delay => {
         const osc = ctx.createOscillator();
         const g = ctx.createGain();
@@ -697,9 +831,7 @@
         osc.stop(ctx.currentTime + delay + 0.12);
       });
     } else if (selectedTone === 'chime') {
-      // Chime: nada naik harmonis
-      const freqs = [523, 659, 784, 1047];
-      freqs.forEach((freq, i) => {
+      [523, 659, 784, 1047].forEach((freq, i) => {
         const osc = ctx.createOscillator();
         const g = ctx.createGain();
         osc.type = 'sine';
@@ -712,7 +844,6 @@
         osc.stop(ctx.currentTime + i * 0.12 + 0.5);
       });
     } else if (selectedTone === 'siren') {
-      // Siren: frekuensi naik-turun
       const osc = ctx.createOscillator();
       const g = ctx.createGain();
       osc.type = 'sawtooth';
@@ -730,7 +861,7 @@
   }
 
   function testSound() {
-    getAudioCtx(); // Inisialisasi audio context
+    getAudioCtx();
     playAlarmSound();
   }
 
@@ -763,28 +894,36 @@
   }
 
   // === LOG ===
-  function addLogEntry() {
+  function addLogEntry(withNotif) {
     if (emptyLog) emptyLog.style.display = 'none';
 
     const now = new Date();
     const entry = document.createElement('div');
     entry.className = 'log-item';
     entry.style.animation = 'countUp 0.3s ease-out';
+
+    const notifBadge = withNotif && getNotifPermission() === 'granted'
+      ? `<span style="font-size:11px;color:var(--accent);background:rgba(0,230,138,0.1);padding:2px 8px;border-radius:6px;margin-left:8px;"><i class="fa-solid fa-bell" style="margin-right:4px;font-size:10px;"></i>Notif terkirim</span>`
+      : (withNotif
+        ? `<span style="font-size:11px;color:var(--warning);background:rgba(255,184,51,0.1);padding:2px 8px;border-radius:6px;margin-left:8px;"><i class="fa-solid fa-bell-slash" style="margin-right:4px;font-size:10px;"></i>Notif gagal</span>`
+        : '');
+
     entry.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;">
-        <span style="font-weight:600;font-size:14px;">Siklus #${currentCycle}</span>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;">
+        <div style="display:flex;align-items:center;">
+          <span style="font-weight:600;font-size:14px;">Siklus #${currentCycle}</span>
+          ${notifBadge}
+        </div>
         <span class="mono" style="font-size:12px;color:var(--muted);">${formatClock(now)}</span>
       </div>
-      <p style="font-size:12px;color:var(--muted);margin-top:4px;">Alarm berbunyi pada ${now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</p>
+      <p style="font-size:12px;color:var(--muted);margin-top:4px;">${now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</p>
     `;
 
-    // Masukkan di atas
     logContainer.insertBefore(entry, logContainer.firstChild);
   }
 
   function clearLog() {
-    const items = logContainer.querySelectorAll('.log-item');
-    items.forEach(item => item.remove());
+    logContainer.querySelectorAll('.log-item').forEach(item => item.remove());
     if (emptyLog) emptyLog.style.display = 'flex';
     totalAlarmCount = 0;
     statTotal.textContent = '0';
@@ -797,15 +936,19 @@
     setTimeout(() => toast.classList.remove('show'), 4000);
   }
 
-  // === UPDATE UI STATE ===
+  function showSuccessToast(msg) {
+    toastSuccessMsg.textContent = msg;
+    toastSuccess.classList.add('show');
+    setTimeout(() => toastSuccess.classList.remove('show'), 3500);
+  }
+
+  // === UPDATE UI ===
   function updateUI() {
-    // Tombol
     btnStart.style.display = timerState === 'idle' ? 'inline-flex' : 'none';
     btnPause.style.display = timerState === 'running' ? 'inline-flex' : 'none';
     btnResume.style.display = timerState === 'paused' ? 'inline-flex' : 'none';
     btnStop.style.display = (timerState === 'running' || timerState === 'paused') ? 'inline-flex' : 'none';
 
-    // Status badge
     if (timerState === 'idle') {
       statusBadge.innerHTML = '<i class="fa-solid fa-circle" style="font-size:6px;margin-right:6px;vertical-align:middle;"></i>Nonaktif';
       statusBadge.style.borderColor = 'var(--border)';
@@ -828,10 +971,8 @@
       timerLabel.textContent = 'Alarm berbunyi!';
     }
 
-    // Statistik siklus
     statCycle.textContent = currentCycle;
 
-    // Reset timer display jika idle
     if (timerState === 'idle') {
       timerDisplay.textContent = '20:00';
       timerRing.style.strokeDashoffset = '0';
@@ -841,7 +982,7 @@
     }
   }
 
-  // === KEYBOARD SHORTCUT ===
+  // === KEYBOARD ===
   document.addEventListener('keydown', (e) => {
     if (e.code === 'Space' && timerState !== 'alarmed') {
       e.preventDefault();
